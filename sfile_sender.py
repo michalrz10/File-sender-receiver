@@ -4,7 +4,7 @@ from time import sleep
 
 
 def send():
-	os.chdir('C:\\Users\\michalrz\\Desktop\\Do_wyslania')
+	os.chdir('path')	#path from which all files will be sent
 	b=os.listdir()
 	s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.bind(('0.0.0.0',50000))
