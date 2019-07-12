@@ -1,7 +1,3 @@
-#-*-coding:utf8;-*-
-#qpy:3
-#qpy:console
-
 import socket
 import os
 
@@ -10,7 +6,7 @@ def receive():
 	so.connect(('8.8.8.8',80))
 	hostt=so.getsockname()[0]
 	so.close()
-	os.chdir('/storage/emulated/0/Przeslane')
+	os.chdir('/storage/emulated/0/Przeslane')	#path where files will be saved
 	s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.settimeout(0.1)
 	iii=0
@@ -63,4 +59,4 @@ def receive():
 		s.close()
 		print('Odebrano!')
 	else:
-		print('Nie uda³o siê po³¹czyæ!')
+		print('Error!')
