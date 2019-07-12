@@ -6,7 +6,7 @@ def receive():
 	so.connect(('8.8.8.8',80))
 	hostt=so.getsockname()[0]
 	so.close()
-	os.chdir('/storage/emulated/0/Przeslane')	#path where files will be saved
+	os.chdir('path')		#path where files will be saved
 	s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.settimeout(0.1)
 	iii=0
@@ -18,7 +18,7 @@ def receive():
 		if iii==3:
 			break
 	powo=False
-	for i in range(1,256):
+	for i in range(1,256):		#trying to connect to all sockets
 		try:
 			hos=host+str(i)
 			s.connect((hos,50000))
@@ -30,9 +30,9 @@ def receive():
 			s.settimeout(0.05)
 			pass
         
-	if powo:
+	if powo:			#if connected
 		s.settimeout(50)
-		print('Polaczono z '+ hos)
+		print('Connected to '+ hos)
 		data=s.recv(1024)
 		b=int(str(data,'utf-8'))
 		st=[]
@@ -57,6 +57,6 @@ def receive():
 			ile+=li[i]
 			x.close()
 		s.close()
-		print('Odebrano!')
+		print('Received!')
 	else:
-		print('Error!')
+		print('Cannot connect!')
