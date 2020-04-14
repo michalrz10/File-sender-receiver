@@ -16,11 +16,6 @@ def arraytoint(tab):
 		number+=tab[i]*256**(len(tab)-1-i)
 	return number
 	
-def filler(number):
-	for i in range(64):
-		if 2**i>=number: return 2**i
-	return -1
-	
 def gethost():
 	so=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 	so.connect(('8.8.8.8',80))
@@ -29,7 +24,7 @@ def gethost():
 	return host
 
 def send():
-	os.chdir('C:\\Users\\michalrz\\Desktop\\Do_wyslania')
+	os.chdir('<path from all files will be sended>')
 	filenames=os.listdir()
 	sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 	sock.bind(('',50001))
@@ -51,7 +46,7 @@ def send():
 	
 def receive():
 	host=gethost()
-	os.chdir('C:\\Users\\michalrz\\Desktop\\Przeslane')
+	os.chdir('<path where to save all files>')
 	sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 	sock.sendto(bytes([int(i) for i in host.split('.')]),('<broadcast>',50001))
