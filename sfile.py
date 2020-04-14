@@ -1,6 +1,5 @@
 import socket
 import os
-from time import sleep
 
 
 def dataLength(length,size):
